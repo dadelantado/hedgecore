@@ -4,11 +4,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<title>No se encontró la página &#8211; desarrollo web</title>
+	<title>Formulario con Mysqli &#8211; desarrollo web</title>
 <meta name="robots" content="max-image-preview:large">
 	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
 	<link rel="alternate" type="application/rss+xml" title="desarrollo web &raquo; Feed" href="/hedgecore/feed/">
 <link rel="alternate" type="application/rss+xml" title="desarrollo web &raquo; RSS de los comentarios" href="/hedgecore/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="desarrollo web &raquo; Formulario con Mysqli RSS de los comentarios" href="/hedgecore/2024/12/04/formulario-con-mysqli/feed/">
 <script>
 window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"\/hedgecore\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.1"}};
 /*! This file is auto-generated */
@@ -50,8 +51,13 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <script src="/hedgecore/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
 <script src="/hedgecore/wp-content/plugins/sticky-header-effects-for-elementor/assets/js/she-header.js?ver=1.7.2" id="she-header-js"></script>
 <link rel="https://api.w.org/" href="/hedgecore/wp-json/">
+<link rel="alternate" title="JSON" type="application/json" href="/hedgecore/wp-json/wp/v2/posts/278">
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/hedgecore/xmlrpc.php?rsd">
 <meta name="generator" content="WordPress 6.7.1">
+<link rel="canonical" href="/hedgecore/2024/12/04/formulario-con-mysqli/">
+<link rel="shortlink" href="/hedgecore/?p=278">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/hedgecore/wp-json/oembed/1.0/embed?url=%2Fhedgecore%2F2024%2F12%2F04%2Fformulario-con-mysqli%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/hedgecore/wp-json/oembed/1.0/embed?url=%2Fhedgecore%2F2024%2F12%2F04%2Fformulario-con-mysqli%2F#038;format=xml">
 <meta name="generator" content="Elementor 3.23.4; features: e_optimized_css_loading, e_font_icon_svg, additional_custom_breakpoints, e_optimized_control_loading, e_lazyload, e_element_cache; settings: css_print_method-external, google_font-enabled, font_display-swap">
 			<style>.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
 				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
@@ -121,7 +127,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 
 				}</style>
 </head>
-<body class="error404 theme--hello-elementor ehf-template-hello-elementor ehf-stylesheet-hello-elementor elementor-default elementor-kit-8">
+<body class="post-template-default single single-post postid-278 single-format-standard theme--hello-elementor ehf-template-hello-elementor ehf-stylesheet-hello-elementor elementor-default elementor-kit-8">
 
 
 <a class="skip-link screen-reader-text" href="#content">Ir al contenido</a>
@@ -137,18 +143,775 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 
 					</div>
 </header>
-<main id="content" class="site-main">
+
+<main id="content" class="site-main post-278 post type-post status-publish format-standard has-post-thumbnail hentry category-practicas-php">
 
 			<div class="page-header">
-			<h1 class="entry-title">No se encontró esa página.</h1>
-		</div>
+			<h1 class="entry-title">Formulario con Mysqli</h1>		</div>
 	
 	<div class="page-content">
-		<p>Parece que no se encontró nada en esta ubicación.</p>
-	</div>
+		
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;?php
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "db_uadec";
+
+$conn = new mysqli($host,$user,$password,$dbname);
+
+if($conn-> connect_error){
+    die("Conexión fallida: ".$conn-> connect_error);
+    
+}
+
+?></pre>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!DOCTYPE html>
+&lt;html lang="es">
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>Captura de Datos&lt;/title>
+&lt;!--   &lt;style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+            text-align: center; 
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15p;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            margin-bottom: 15px;
+            color: white;
+            border: none;
+            box-sizing: border-box;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }        
+
+    &lt;/style>        
+&lt;/head>
+&lt;body>
+    &lt;h1>Formulario de Registro Mysqli&lt;/h1>
+
+    &lt;form action="formularioMysqli.php" method="POST">
+        &lt;label for="nombre">Nombre:&lt;/label>&lt;br>
+        &lt;input type="text" id="nombre" name="nombre" required>&lt;br>&lt;br>
+
+        &lt;label for="correo">Correo:&lt;/label>&lt;br>
+        &lt;input type="email" id="correo" name="correo" required>&lt;br>&lt;br>
+
+        &lt;label for="edad">Edad:&lt;/label>&lt;br>
+        &lt;input type="number" id="edad" name="edad" required min="1">&lt;br>&lt;br>
+        
+        &lt;button type="submit" name="submit">Registrar&lt;/button>
+    &lt;/form>
+
+-->
+
+&lt;style>
+body
+{
+	background:#222222;
+	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	font-size:small;
+	margin:8px 0 16px;
+	text-align:center;
+}
+
+#form_container
+{
+	background:#fff;
+	
+	margin:0 auto;
+	text-align:left;
+	width:640px;
+}
+
+#top
+{
+	display:block;
+	height:10px;
+	margin:10px auto 0;
+	width:650px;
+}
+
+#footer
+{
+	width:640px;
+	clear:both;
+	color:#999999;
+	text-align:center;
+	width:640px;
+	padding-bottom: 15px;
+	font-size: 85%;
+}
+
+#footer a{
+	color:#999999;
+	text-decoration: none;
+	border-bottom: 1px dotted #999999;
+}
+
+#bottom
+{
+	display:block;
+	height:10px;
+	margin:0 auto;
+	width:650px;
+}
+
+form.appnitro
+{
+	margin:20px 20px 0;
+	padding:0 0 20px;
+}
+
+/**** Logo Section  *****/
+h1
+{
+	background-color:#444444;
+	margin:0;
+	min-height:0;
+	padding:0;
+	text-decoration:none;
+	text-indent:-8000px;
+	
+}
+
+h1 a
+{
+	
+	display:block;
+	height:100%;
+	min-height:40px;
+	overflow:hidden;
+}
+
+
+img
+{
+	behavior:url(css/iepngfix.htc);
+	border:none;
+}
+
+
+/**** Form Section ****/
+.appnitro
+{
+	font-family:Lucida Grande, Tahoma, Arial, Verdana, sans-serif;
+	font-size:small;
+}
+
+.appnitro li
+{
+	width:61%;
+}
+
+form ul
+{
+	font-size:100%;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	width:100%;
+}
+
+form li
+{
+	display:block;
+	margin:0;
+	padding:4px 5px 2px 9px;
+	position:relative;
+}
+
+form li:after
+{
+	clear:both;
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+}
+
+.buttons:after
+{
+	clear:both;
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+}
+
+.buttons
+{
+	clear:both;
+	display:block;
+	margin-top:10px;
+}
+
+* html form li
+{
+	height:1%;
+}
+
+* html .buttons
+{
+	height:1%;
+}
+
+* html form li div
+{
+	display:inline-block;
+}
+
+form li div
+{
+	color:#444;
+	margin:0 4px 0 0;
+	padding:0 0 8px;
+}
+
+form li span
+{
+	color:#444;
+	float:left;
+	margin:0 4px 0 0;
+	padding:0 0 8px;
+}
+
+form li div.left
+{
+	display:inline;
+	float:left;
+	width:48%;
+}
+
+form li div.right
+{
+	display:inline;
+	float:right;
+	width:48%;
+}
+
+form li div.left .medium
+{
+	width:100%;
+}
+
+form li div.right .medium
+{
+	width:100%;
+}
+
+.clear
+{
+	clear:both;
+}
+
+form li div label
+{
+	clear:both;
+	color:#444;
+	display:block;
+	font-size:9px;
+	line-height:9px;
+	margin:0;
+	padding-top:3px;
+}
+
+form li span label
+{
+	clear:both;
+	color:#444;
+	display:block;
+	font-size:9px;
+	line-height:9px;
+	margin:0;
+	padding-top:3px;
+}
+
+form li .datepicker
+{
+	cursor:pointer !important;
+	float:left;
+	height:16px;
+	margin:.1em 5px 0 0;
+	padding:0;
+	width:16px;
+}
+
+.form_description
+{
+	border-bottom:1px dotted #ccc;
+	clear:both;
+	display:inline-block;
+	margin:0 0 1em;
+}
+
+.form_description[class]
+{
+	display:block;
+}
+
+.form_description h2
+{
+	clear:left;
+	font-size:160%;
+	font-weight:400;
+	margin:0 0 3px;
+}
+
+.form_description p
+{
+	font-size:95%;
+	line-height:130%;
+	margin:0 0 12px;
+}
+
+form hr
+{
+	display:none;
+}
+
+form li.section_break
+{
+	border-top:1px dotted #ccc;
+	margin-top:9px;
+	padding-bottom:0;
+	padding-left:9px;
+	padding-top:13px;
+	width:97% !important;
+}
+
+form ul li.first
+{
+	border-top:none !important;
+	margin-top:0 !important;
+	padding-top:0 !important;
+}
+
+form .section_break h3
+{
+	font-size:110%;
+	font-weight:400;
+	line-height:130%;
+	margin:0 0 2px;
+}
+
+form .section_break p
+{
+	font-size:85%;
+
+	margin:0 0 10px;
+}
+
+/**** Buttons ****/
+input.button_text
+{
+	overflow:visible;
+	padding:0 7px;
+	width:auto;
+}
+
+.buttons input
+{
+	font-size:120%;
+	margin-right:5px;
+}
+
+/**** Inputs and Labels ****/
+label.description
+{
+	border:none;
+	color:#222;
+	display:block;
+	font-size:95%;
+	font-weight:700;
+	line-height:150%;
+	padding:0 0 1px;
+}
+
+span.symbol
+{
+	font-size:115%;
+	line-height:130%;
+}
+
+input.text
+{
+	background:#fff url(../../../images/shadow.gif) repeat-x top;
+	border-bottom:1px solid #ddd;
+	border-left:1px solid #c3c3c3;
+	border-right:1px solid #c3c3c3;
+	border-top:1px solid #7c7c7c;
+	color:#333;
+	font-size:100%;
+	margin:0;
+	padding:2px 0;
+}
+
+input.file
+{
+	color:#333;
+	font-size:100%;
+	margin:0;
+	padding:2px 0;
+}
+
+textarea.textarea
+{
+	background:#fff url(../../../images/shadow.gif) repeat-x top;
+	border-bottom:1px solid #ddd;
+	border-left:1px solid #c3c3c3;
+	border-right:1px solid #c3c3c3;
+	border-top:1px solid #7c7c7c;
+	color:#333;
+	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	font-size:100%;
+	margin:0;
+	width:99%;
+}
+
+select.select
+{
+	color:#333;
+	font-size:100%;
+	margin:1px 0;
+	padding:1px 0 0;
+	background:#fff url(../../../images/shadow.gif) repeat-x top;
+	border-bottom:1px solid #ddd;
+	border-left:1px solid #c3c3c3;
+	border-right:1px solid #c3c3c3;
+	border-top:1px solid #7c7c7c;
+}
+
+
+input.currency
+{
+	text-align:right;
+}
+
+input.checkbox
+{
+	display:block;
+	height:13px;
+	line-height:1.4em;
+	margin:6px 0 0 3px;
+	width:13px;
+}
+
+input.radio
+{
+	display:block;
+	height:13px;
+	line-height:1.4em;
+	margin:6px 0 0 3px;
+	width:13px;
+}
+
+label.choice
+{
+	color:#444;
+	display:block;
+	font-size:100%;
+	line-height:1.4em;
+	margin:-1.55em 0 0 25px;
+	padding:4px 0 5px;
+	width:90%;
+}
+
+select.select[class]
+{
+	margin:0;
+	padding:1px 0;
+}
+
+*:first-child+html select.select[class]
+{
+	margin:1px 0;
+}
+
+.safari select.select
+{
+	font-size:120% !important;
+	margin-bottom:1px;
+}
+
+input.small
+{
+	width:25%;
+}
+
+select.small
+{
+	width:25%;
+}
+
+input.medium
+{
+	width:50%;
+}
+
+select.medium
+{
+	width:50%;
+}
+
+input.large
+{
+	width:99%;
+}
+
+select.large
+{
+	width:100%;
+}
+
+textarea.small
+{
+	height:5.5em;
+}
+
+textarea.medium
+{
+	height:10em;
+}
+
+textarea.large
+{
+	height:20em;
+}
+
+/**** Errors ****/
+#error_message
+{
+	background:#fff;
+	border:1px dotted red;
+	margin-bottom:1em;
+	padding-left:0;
+	padding-right:0;
+	padding-top:4px;
+	text-align:center;
+	width:99%;
+}
+
+#error_message_title
+{
+	color:#DF0000;
+	font-size:125%;
+	margin:7px 0 5px;
+	padding:0;
+}
+
+#error_message_desc
+{
+	color:#000;
+	font-size:100%;
+	margin:0 0 .8em;
+}
+
+#error_message_desc strong
+{
+	background-color:#FFDFDF;
+	color:red;
+	padding:2px 3px;
+}
+
+form li.error
+{
+	background-color:#FFDFDF !important;
+	border-bottom:1px solid #EACBCC;
+	border-right:1px solid #EACBCC;
+	margin:3px 0;
+}
+
+form li.error label
+{
+	color:#DF0000 !important;
+}
+
+form p.error
+{
+	clear:both;
+	color:red;
+	font-size:10px;
+	font-weight:700;
+	margin:0 0 5px;
+}
+
+form .required
+{
+	color:red;
+	float:none;
+	font-weight:700;
+}
+&lt;/style>
+
+
+&lt;body id="main_body" >
+	
+	&lt;img id="top" src="top.png" alt="">
+	&lt;div id="form_container">
+	
+		&lt;h1>&lt;a>Formulario de Registro&lt;/a>&lt;/h1>
+		&lt;form id="form_50905" class="appnitro"  method="post" action="">
+					&lt;div class="form_description">
+			&lt;h2>Formulario de Registro&lt;/h2>
+			&lt;p>&lt;/p>
+		&lt;/div>						
+			&lt;ul >
+			
+					&lt;li id="li_4" >
+		&lt;label class="description" for="nombre">Nombre
+ &lt;/label>
+		&lt;div>
+			&lt;input id="nombre" name="nombre" class="element text medium" type="text" maxlength="255" value=""/> 
+		&lt;/div> 
+		&lt;/li>		&lt;li id="li_2" >
+		&lt;label class="description" for="correo">Correo
+ &lt;/label>
+		&lt;div>
+			&lt;input id="correo" name="correo" class="element text medium" type="text" maxlength="255" value=""/> 
+		&lt;/div> 
+		&lt;/li>		&lt;li id="li_3" >
+		&lt;label class="description" for="edad">Edad
+ &lt;/label>
+		&lt;div>
+			&lt;input id="edad" name="edad" class="element text medium" type="text" maxlength="255" value=""/> 
+		&lt;/div> 
+		&lt;/li>
+			
+					&lt;li class="buttons">
+			    &lt;input type="hidden" name="form_id" value="50905" />
+			    
+				&lt;input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+		&lt;/li>
+			&lt;/ul>
+		&lt;/form>	
+		&lt;div id="footer">
+			Generated by &lt;a href="http://www.phpform.org">pForm&lt;/a>
+		&lt;/div>
+	&lt;/div>
+	&lt;img id="bottom" src="bottom.png" alt="">
+
+    &lt;?php
+    // Incluir archivos de conexión y función
+    include 'conexionM.php';
+    include 'insertarM.php';
+
+    // Verificar si se ha enviado el formulario
+    if (isset($_POST['submit'])) {
+        // Capturar los datos del formulario
+        $nombre = $_POST['nombre'];
+        $correo = $_POST['correo'];
+        $edad = $_POST['edad'];
+
+        // Insertar los datos
+        insertarDatosM($nombre, $correo, $edad, $conn);
+
+        // Cerrar conexión
+        $conn->close();
+    }
+    ?>
+&lt;/body>
+&lt;/html>
+</pre>
+
+
+
+<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;?php
+function insertarDatosM ($nombre,$correo,$edad,$conn){
+    $sql = "INSERT INTO usuarios (nombre, correo, edad) VALUES (?,?,?)";
+    $stmt = $conn->prepare($sql);
+
+    if($stmt){
+        $stmt -> bind_param("ssi",$nombre, $correo, $edad);
+        if($stmt -> execute()){
+            echo "Datos insertados correctamente.";
+        }else{
+            echo "Error al insertar datos:" . $stmt->error;
+        }
+        $stmt -> close();
+    }else{
+        echo "Error en la preparación de la consulta:". $conn->error;
+    }
+}</pre>
+
+
+
+<p></p>
+
+		
+			</div>
+
+	<section id="comments" class="comments-area">
+
+	
+		<div id="respond" class="comment-respond">
+		<h2 id="reply-title" class="comment-reply-title">Deja un comentario <small><a rel="nofollow" id="cancel-comment-reply-link" href="/hedgecore/2024/12/04/formulario-con-mysqli/#respond" style="display:none;">Cancelar respuesta</a></small>
+</h2>
+<form action="/hedgecore/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+<p class="comment-notes"><span id="email-notes">Tu dirección de correo electrónico no será publicada.</span> <span class="required-field-message">Los campos obligatorios están marcados con <span class="required">*</span></span></p>
+<p class="comment-form-comment"><label for="comment">Comentario <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p>
+<p class="comment-form-author"><label for="author">Nombre <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required></p>
+<p class="comment-form-email"><label for="email">Correo electrónico <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required></p>
+<p class="comment-form-url"><label for="url">Web</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" autocomplete="url"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">Guardar mi nombre, correo electrónico y sitio web en este navegador para la próxima vez que haga un comentario.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Publicar comentario"> <input type="hidden" name="comment_post_ID" value="278" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>
+</form>	</div>
+<!-- #respond -->
+	
+</section>
 
 </main>
-<footer id="site-footer" class="site-footer dynamic-footer footer-has-copyright">
+
+	<footer id="site-footer" class="site-footer dynamic-footer footer-has-copyright">
 	<div class="footer-inner">
 		<div class="site-branding show-logo">
 					</div>
@@ -187,6 +950,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 			<script src="/hedgecore/wp-content/themes/hello-elementor/assets/js/hello-frontend.min.js?ver=3.1.1" id="hello-theme-frontend-js"></script>
 <script src="/hedgecore/wp-content/plugins/enlighter/cache/enlighterjs.min.js?ver=0A0B0C" id="enlighterjs-js"></script>
 <script id="enlighterjs-js-after">!function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":4,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":false,"textOverflow":"break","linenumbers":true,"theme":"enlighter","language":"generic","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);</script>
+<script src="/hedgecore/wp-includes/js/comment-reply.min.js?ver=6.7.1" id="comment-reply-js" async data-wp-strategy="async"></script>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;left: -100%;" height="0" width="0"><symbol id="icon-anwp-pg-calendar" viewbox="0 0 14 16"><path fill-rule="evenodd" d="M13 2h-1v1.5c0 .28-.22.5-.5.5h-2c-.28 0-.5-.22-.5-.5V2H6v1.5c0 .28-.22.5-.5.5h-2c-.28 0-.5-.22-.5-.5V2H2c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h11c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 12H2V5h11v9zM5 3H4V1h1v2zm6 0h-1V1h1v2zM6 7H5V6h1v1zm2 0H7V6h1v1zm2 0H9V6h1v1zm2 0h-1V6h1v1zM4 9H3V8h1v1zm2 0H5V8h1v1zm2 0H7V8h1v1zm2 0H9V8h1v1zm2 0h-1V8h1v1zm-8 2H3v-1h1v1zm2 0H5v-1h1v1zm2 0H7v-1h1v1zm2 0H9v-1h1v1zm2 0h-1v-1h1v1zm-8 2H3v-1h1v1zm2 0H5v-1h1v1zm2 0H7v-1h1v1zm2 0H9v-1h1v1z"></path></symbol><symbol id="icon-anwp-pg-chevron-left" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></symbol><symbol id="icon-anwp-pg-chevron-right" viewbox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></symbol><symbol id="icon-anwp-pg-clock" viewbox="0 0 14 16"><path fill-rule="evenodd" d="M8 8h3v2H7c-.55 0-1-.45-1-1V4h2v4zM7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 011.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7z"></path></symbol><symbol id="icon-anwp-pg-comment-discussion" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M15 1H6c-.55 0-1 .45-1 1v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h1v3l3-3h4c.55 0 1-.45 1-1V9h1l3 3V9h1c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM9 11H4.5L3 12.5V11H1V5h4v3c0 .55.45 1 1 1h3v2zm6-3h-2v1.5L11.5 8H6V2h9v6z"></path></symbol><symbol id="icon-anwp-pg-device-camera" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M15 3H7c0-.55-.45-1-1-1H2c-.55 0-1 .45-1 1-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h14c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zM6 5H2V4h4v1zm4.5 7C8.56 12 7 10.44 7 8.5S8.56 5 10.5 5 14 6.56 14 8.5 12.44 12 10.5 12zM13 8.5c0 1.38-1.13 2.5-2.5 2.5S8 9.87 8 8.5 9.13 6 10.5 6 13 7.13 13 8.5z"></path></symbol><symbol id="icon-anwp-pg-eye" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></symbol><symbol id="icon-anwp-pg-pencil" viewbox="0 0 24 24"><path fill-rule="evenodd" d="M17.263 2.177a1.75 1.75 0 012.474 0l2.586 2.586a1.75 1.75 0 010 2.474L19.53 10.03l-.012.013L8.69 20.378a1.75 1.75 0 01-.699.409l-5.523 1.68a.75.75 0 01-.935-.935l1.673-5.5a1.75 1.75 0 01.466-.756L14.476 4.963l2.787-2.786zm-2.275 4.371l-10.28 9.813a.25.25 0 00-.067.108l-1.264 4.154 4.177-1.271a.25.25 0 00.1-.059l10.273-9.806-2.94-2.939zM19 8.44l2.263-2.262a.25.25 0 000-.354l-2.586-2.586a.25.25 0 00-.354 0L16.061 5.5 19 8.44z"></path></symbol><symbol id="icon-anwp-pg-person" viewbox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.5a5.5 5.5 0 00-3.096 10.047 9.005 9.005 0 00-5.9 8.18.75.75 0 001.5.045 7.5 7.5 0 0114.993 0 .75.75 0 101.499-.044 9.005 9.005 0 00-5.9-8.181A5.5 5.5 0 0012 2.5zM8 8a4 4 0 118 0 4 4 0 01-8 0z"></path></symbol><symbol id="icon-anwp-pg-play" viewbox="0 0 14 16"><path fill-rule="evenodd" d="M14 8A7 7 0 110 8a7 7 0 0114 0zm-8.223 3.482l4.599-3.066a.5.5 0 000-.832L5.777 4.518A.5.5 0 005 4.934v6.132a.5.5 0 00.777.416z"></path></symbol><symbol id="icon-anwp-pg-tag" viewbox="0 0 14 16"><path fill-rule="evenodd" d="M7.685 1.72a2.49 2.49 0 00-1.76-.726H3.48A2.5 2.5 0 00.994 3.48v2.456c0 .656.269 1.292.726 1.76l6.024 6.024a.99.99 0 001.402 0l4.563-4.563a.99.99 0 000-1.402L7.685 1.72zM2.366 7.048a1.54 1.54 0 01-.467-1.123V3.48c0-.874.716-1.58 1.58-1.58h2.456c.418 0 .825.159 1.123.467l6.104 6.094-4.702 4.702-6.094-6.114zm.626-4.066h1.989v1.989H2.982V2.982h.01z"></path></symbol><symbol id="icon-anwp-pg-trash" viewbox="0 0 24 24"><path fill-rule="evenodd" d="M16 1.75V3h5.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H8V1.75C8 .784 8.784 0 9.75 0h4.5C15.216 0 16 .784 16 1.75zm-6.5 0a.25.25 0 01.25-.25h4.5a.25.25 0 01.25.25V3h-5V1.75z"></path><path d="M4.997 6.178a.75.75 0 10-1.493.144L4.916 20.92a1.75 1.75 0 001.742 1.58h10.684a1.75 1.75 0 001.742-1.581l1.413-14.597a.75.75 0 00-1.494-.144l-1.412 14.596a.25.25 0 01-.249.226H6.658a.25.25 0 01-.249-.226L4.997 6.178z"></path><path d="M9.206 7.501a.75.75 0 01.793.705l.5 8.5A.75.75 0 119 16.794l-.5-8.5a.75.75 0 01.705-.793zm6.293.793A.75.75 0 1014 8.206l-.5 8.5a.75.75 0 001.498.088l.5-8.5z"></path></symbol></svg>
 </body>
 </html>
